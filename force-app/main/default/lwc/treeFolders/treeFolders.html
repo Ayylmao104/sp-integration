@@ -1,0 +1,20 @@
+<template>
+    <div>
+        <lightning-card>
+            <!-- sldsValidatorIgnoreNextLine -->
+            <div class="slds-p-around_medium lgc-bg">
+                <div if:true={isLoading} class="slds-spinner_inline spinner-padding">
+                    <lightning-spinner variant="brand" size="medium" alternative-text="Loading..."> </lightning-spinner>
+                </div>
+                <div if:false={isLoading}>
+                    <div if:false={folderPath}>
+                        <lightning-tree items={returnedFolder} header="Root Folder"></lightning-tree>
+                    </div>
+                    <div if:true={folderPath}>
+                        <lightning-tree items={returnedFolder} header={folderPath}></lightning-tree>
+                    </div>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>

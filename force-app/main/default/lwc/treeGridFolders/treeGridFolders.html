@@ -1,0 +1,33 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div>
+        <lightning-card title={compName}>
+            <div class="slds-p-around_medium lgc-bg">
+                <div if:true={isLoading} class="slds-spinner_inline spinner-padding">
+                    <lightning-spinner variant="brand" size="medium" alternative-text="Loading..."> </lightning-spinner>
+                </div>
+                <div if:false={isLoading}>
+                    <!-- sldsValidatorIgnoreNextLine -->
+                    <lightning-tree-grid
+                        columns={gridColumns}
+                        data={returnedFolder}
+                        key-field="name"
+                        hide-checkbox-column
+                    ></lightning-tree-grid>  
+                    <p slot="footer">
+                        <lightning-button-stateful class="slds-align_absolute-center"
+                            label-when-off="See Related Folder"
+                            label-when-on="See Root Folder"
+                            label-when-hover="Change Path"
+                            icon-name-when-off="action:change_record_type"
+                            icon-name-when-on="action:change_record_type"
+                            icon-name-when-hover="action:change_record_type"
+                            selected={isSelected}
+                            onclick={handleClick}>
+                        </lightning-button-stateful>
+                    </p>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>
